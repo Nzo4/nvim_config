@@ -27,6 +27,7 @@ return {
           "emmet_language_server",
           "phpactor",
           "intelephense",
+          "omnisharp",
         },
         automatic_installation = true,
       })

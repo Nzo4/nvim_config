@@ -24,3 +24,20 @@ vim.opt.termguicolors = true
 -- Настройка карты клавиш
 vim.g.mapleader = " "
 
+-- Отмена текущего выбора ( подсветка, поиск )
+vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { noremap = true, silent = true })
+
+-- По нажатию gd на клавиатуре можно открыть файл под курсором
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true })
+
+-- Сворачивание по отступам
+vim.o.foldmethod = "manual" 
+-- Включение фолдинга
+vim.o.foldenable = true     
+     
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})

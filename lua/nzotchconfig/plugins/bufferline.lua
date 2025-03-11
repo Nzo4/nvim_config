@@ -31,6 +31,7 @@ return {
         -- Настройка горячих клавиш
         vim.api.nvim_set_keymap('n', '<Tab>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
         vim.api.nvim_set_keymap('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
-        vim.api.nvim_set_keymap('n', '<Leader>d', ':bdelete<CR>', { noremap = true, silent = true })
+        -- Закрытие текущей вкладки через пробел + d
+        vim.api.nvim_set_keymap('n', '<Leader>d', ':bp|bd #<CR>', { noremap = true, silent = true })
     end
 }
