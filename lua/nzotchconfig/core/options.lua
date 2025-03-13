@@ -5,11 +5,11 @@ vim.opt.number = true
 vim.opt.wrap = false
 
 -- Настройка табуляции ( включить/отключить, количество отступов )
-vim.opt.expandtab = true 
+vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
--- Настройка буфера обмена, включаем системный буфер ( можно копировать все что угодно ) 
+-- Настройка буфера обмена, включаем системный буфер ( можно копировать все что угодно )
 vim.opt.clipboard = 'unnamedplus'
 
 -- Настройка централизации курсора при заполнении строк кода
@@ -30,11 +30,12 @@ vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { noremap = true, silent = true 
 -- По нажатию gd на клавиатуре можно открыть файл под курсором
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true })
 
--- Сворачивание по отступам
-vim.o.foldmethod = "manual" 
--- Включение фолдинга
-vim.o.foldenable = true     
-     
+vim.o.foldcolumn = "1"      -- Показывать индикатор сворачивания слева
+vim.o.foldlevel = 99        -- Открывать все блоки при старте
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true     -- Включить сворачивание
+vim.o.foldmethod = "manual" -- НЕ ставь "indent" или "syntax"
+
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function()
